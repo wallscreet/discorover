@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -19,11 +20,13 @@ export default function Home() {
         />
       </div>
       <div className="rounded-lg">
-        <img
-          src="/GovFeedsHero.png"
-          alt="Wide bento image"
-          className="w-full h-full object-cover rounded-md"
-        />
+        <Link href="http://gov-feeds.discorover.com">
+          <img
+            src="/GovFeedsHero.png"
+            alt="Wide bento image"
+            className="w-full h-full object-cover rounded-md"
+          />
+        </Link>
       </div>
       <div className="bg-[#214469] rounded-lg"></div>
       <div className="bg-[#214469] flex rounded-lg col-span-3 items-center justify-center">
