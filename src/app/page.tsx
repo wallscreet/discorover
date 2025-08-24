@@ -16,7 +16,7 @@ export default function Home() {
         />
       </div>
       
-      <div className="bg-[#2596be] rounded-lg row-span-2 col-span-1">
+      <div className="bg-[#2596be] rounded-lg">
         <Link href="https://api.discorover.com/docs" className="relative rounded-lg overflow-hidden group">
           <img
             src="/FedChartHero.png"
@@ -29,7 +29,7 @@ export default function Home() {
         </Link>
       </div>
       
-      <div className="bg-[#2596be] rounded-lg">
+      <div className="bg-[#2596be] rounded-lg row-span-2 col-span-1">
         <Link href="https://gov-feeds.discorover.com" className="relative rounded-lg overflow-hidden group">
           <img
             src="/GovFeedsHero.png"
