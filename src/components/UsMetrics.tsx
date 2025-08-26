@@ -1,92 +1,120 @@
-import React from 'react'
+"use client"
 
-// TODO: Fetch sorted last record from gov-data routes. national debt will use a separate feed. 
+import React, { useEffect, useState } from "react";
 
-function UsMetrics() {
-  return (
-    <div className="bg-gradient-to-t from-white to-[#214469] rounded-xl w-full h-100 flex grid grid-cols-3 grid-rows-4 gap-2 p-4 mt-4 mb-4">
-        <div className="bg-white rounded-xl row-span-2 col-span-3 row-start-1 col-start-1 flex flex-col items-center justify-center shadow-lg">
-            <p className="font-semibold text-2xl pb-5 text-center">U.S. National Debt</p>
-            <p className="font-semibold text-3xl sm:text-5xl pb-4 text-red-800 text-center">$37,234,066,149,278.96</p>
-        </div>
-        <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-1 flex flex-col items-center justify-center shadow-lg">
-            <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">6.58%</p>
-            <p className="text-sm text-center">30yr Mortgage</p>
-        </div>
-        <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-2 flex flex-col items-center justify-center shadow-lg">
-            <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">4.33%</p>
-            <p className="text-sm text-center">Fed Funds Rate</p>
-        </div>
-        <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-3 flex flex-col items-center justify-center shadow-lg">
-            <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">4.36%</p>
-            <p className="text-sm text-center">SOFR</p>
-        </div>
-    </div>
-  )
+interface DebtData {
+  record_date: string;
+  tot_pub_debt_out_amt: number;
 }
 
-export default UsMetrics
-// "use client";
-// import React, { useEffect, useState } from "react";
+interface SofrData {
+  date: string;
+  sofr: number;
+}
 
-// function UsMetrics() {
-//   const [debt, setDebt] = useState<string | null>(null);
-//   const [mortgage, setMortgage] = useState<string | null>(null);
-//   const [fedFunds, setFedFunds] = useState<string | null>(null);
-//   const [sofr, setSofr] = useState<string | null>(null);
+interface FedFundsData {
+  date: string;
+  ffrate: number;
+}
 
-//   useEffect(() => {
-//     async function fetchMetric(url: string, setter: (val: string) => void, formatter?: (n: number) => string) {
-//       try {
-//         const res = await fetch(url);
-//         const data = await res.json();
-//         if (data.value !== undefined) {
-//           const val = formatter ? formatter(data.value) : String(data.value);
-//           setter(val);
-//         }
-//       } catch (e) {
-//         console.error("Error fetching metric:", url, e);
-//       }
-//     }
+interface MortgageData {
+  date: string;
+  rate: number;
+}
 
-//     fetchMetric("/api/national-debt", setDebt, (n) =>
-//       new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 }).format(n)
-//     );
+function UsMetrics() {
+  const [debt, setDebt] = useState<DebtData | null>(null);
+  const [sofr, setSofr] = useState<SofrData | null>(null);
+  const [ffr, setFfr] = useState<FedFundsData | null>(null);
+  const [mortgage, setMortgage] = useState<MortgageData | null>(null);
 
-//     fetchMetric("/api/mortgage-rate", setMortgage, (n) => `${n.toFixed(2)}%`);
-//     fetchMetric("/api/fed-funds", setFedFunds, (n) => `${n.toFixed(2)}%`);
-//     fetchMetric("/api/sofr", setSofr, (n) => `${n.toFixed(2)}%`);
-//   }, []);
+  useEffect(() => {
+    async function fetchDebt() {
+      try {
+        const res = await fetch("/api/usdebt");
+        const data = await res.json();
+        setDebt(data);
+      } catch (err) {
+        console.error("Failed to fetch debt:", err);
+      }
+    }
 
-//   return (
-//     <div className="bg-gradient-to-t from-white to-[#214469] rounded-xl w-full h-100 flex grid grid-cols-3 grid-rows-4 gap-2 p-4 mt-4 mb-4">
-//       {/* National Debt */}
-//       <div className="bg-white rounded-xl row-span-2 col-span-3 flex flex-col items-center justify-center shadow-lg">
-//         <p className="font-semibold text-2xl pb-5 text-center">U.S. National Debt</p>
-//         <p className="font-semibold text-3xl sm:text-5xl pb-4 text-red-800 text-center">
-//           {debt ?? "Loading..."}
-//         </p>
-//       </div>
+    async function fetchSofr() {
+      try {
+        const res = await fetch("/api/sofr");
+        const data = await res.json();
+        setSofr(data);
+      } catch (err) {
+        console.error("Failed to fetch SOFR:", err);
+      }
+    }
 
-//       {/* Mortgage */}
-//       <div className="bg-white rounded-xl row-span-2 col-span-1 flex flex-col items-center justify-center shadow-lg">
-//         <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">{mortgage ?? "..."}</p>
-//         <p className="text-sm text-center">30yr Mortgage</p>
-//       </div>
+    async function fetchFfr() {
+      try {
+        const res = await fetch("/api/fedfunds");
+        const data = await res.json();
+        setFfr(data);
+      } catch (err) {
+        console.error("Failed to fetch Fed Funds Rate:", err);
+      }
+    }
 
-//       {/* Fed Funds */}
-//       <div className="bg-white rounded-xl row-span-2 col-span-1 flex flex-col items-center justify-center shadow-lg">
-//         <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">{fedFunds ?? "..."}</p>
-//         <p className="text-sm text-center">Fed Funds Rate</p>
-//       </div>
+    async function fetchMortgage() {
+      try {
+        const res = await fetch("/api/mtg-30yr");
+        const data = await res.json();
+        setMortgage(data);
+      } catch (err) {
+        console.error("Failed to fetch Mortgage Rate:", err);
+      }
+    }
 
-//       {/* SOFR */}
-//       <div className="bg-white rounded-xl row-span-2 col-span-1 flex flex-col items-center justify-center shadow-lg">
-//         <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">{sofr ?? "..."}</p>
-//         <p className="text-sm text-center">SOFR</p>
-//       </div>
-//     </div>
-//   );
-// }
+    fetchDebt();
+    fetchSofr();
+    fetchFfr();
+    fetchMortgage();
+  }, []);
 
-// export default UsMetrics;
+  return (
+    <div className="bg-gradient-to-t from-white to-[#214469] rounded-xl w-full h-100 flex grid grid-cols-3 grid-rows-4 gap-2 p-4 mt-4 mb-4">
+
+      <div className="bg-white rounded-xl row-span-2 col-span-3 row-start-1 col-start-1 flex flex-col items-center justify-center shadow-lg">
+        <p className="font-semibold text-2xl pb-5 text-center text-[#214469]">
+          U.S. National Debt
+        </p>
+        <p className="font-semibold text-3xl sm:text-5xl pb-4 text-red-800 text-center">
+          {debt
+            ? debt.tot_pub_debt_out_amt.toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+                maximumFractionDigits: 2,
+              })
+            : "Loading..."}
+        </p>
+      </div>
+
+      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-1 flex flex-col items-center justify-center shadow-lg">
+        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">
+          {mortgage ? `${mortgage.rate.toFixed(2)}%` : "Loading..."}
+        </p>
+        <p className="text-sm text-center">30yr Mortgage</p>
+      </div>
+
+      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-2 flex flex-col items-center justify-center shadow-lg">
+        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">
+          {ffr ? `${ffr.ffrate.toFixed(2)}%` : "Loading..."}
+        </p>
+        <p className="text-sm text-center">Fed Funds Rate</p>
+      </div>
+
+      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-3 flex flex-col items-center justify-center shadow-lg">
+        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">
+          {sofr ? `${sofr.sofr.toFixed(2)}%` : "Loading..."}
+        </p>
+        <p className="text-sm text-center">SOFR</p>
+      </div>
+    </div>
+  );
+}
+
+export default UsMetrics;

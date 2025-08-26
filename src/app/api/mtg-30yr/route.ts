@@ -1,16 +1,16 @@
 import { NextResponse } from "next/server";
 
-interface RawFedFundsData {
+interface RawMtg30Data {
   Date: string;
-  "Fed Funds Rate": number;
+  "30yr Mortgage Rate": number;
   Year: number;
   Month: number;
   Day: number;
 }
 
-interface FedFundsData {
+interface Mtg30Data {
   date: string;
-  ffrate: number;
+  rate: number;
   year: number;
   month: number;
   day: number;
@@ -18,27 +18,27 @@ interface FedFundsData {
 
 export async function GET() {
   try {
-    const res = await fetch("https://api.discorover.com/fed-funds");
+    const res = await fetch("https://api.discorover.com/mortgage-30yr");
 
     if (!res.ok) {
       return NextResponse.json(
-        { error: "Failed to fetch Fed Funds data" },
+        { error: "Failed to fetch 30yr Mortgage Rates data" },
         { status: res.status }
       );
     }
 
-    const raw: unknown = await res.json();
+    const raw: RawMtg30Data[] = await res.json();
 
     if (!Array.isArray(raw) || raw.length === 0) {
       return NextResponse.json(
-        { error: "No Fed Funds data available" },
+        { error: "No Mortgage Rates data available" },
         { status: 500 }
       );
     }
 
-    const data: FedFundsData[] = (raw as RawFedFundsData[]).map((item) => ({
+    const data: Mtg30Data[] = raw.map((item) => ({
       date: item.Date,
-      ffrate: item["Fed Funds Rate"],
+      rate: item["30yr Mortgage Rate"],
       year: item.Year,
       month: item.Month,
       day: item.Day,

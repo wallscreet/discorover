@@ -1,16 +1,16 @@
 import { NextResponse } from "next/server";
 
-interface RawFedFundsData {
+interface RawSofrData {
   Date: string;
-  "Fed Funds Rate": number;
+  SOFR: number;
   Year: number;
   Month: number;
   Day: number;
 }
 
-interface FedFundsData {
+interface SofrData {
   date: string;
-  ffrate: number;
+  sofr: number;
   year: number;
   month: number;
   day: number;
@@ -18,11 +18,11 @@ interface FedFundsData {
 
 export async function GET() {
   try {
-    const res = await fetch("https://api.discorover.com/fed-funds");
+    const res = await fetch("https://api.discorover.com/sofr");
 
     if (!res.ok) {
       return NextResponse.json(
-        { error: "Failed to fetch Fed Funds data" },
+        { error: "Failed to fetch SOFR data" },
         { status: res.status }
       );
     }
@@ -31,23 +31,22 @@ export async function GET() {
 
     if (!Array.isArray(raw) || raw.length === 0) {
       return NextResponse.json(
-        { error: "No Fed Funds data available" },
+        { error: "No SOFR data available" },
         { status: 500 }
       );
     }
 
-    const data: FedFundsData[] = (raw as RawFedFundsData[]).map((item) => ({
+    const data: SofrData[] = (raw as RawSofrData[]).map((item) => ({
       date: item.Date,
-      ffrate: item["Fed Funds Rate"],
+      sofr: item.SOFR,
       year: item.Year,
       month: item.Month,
       day: item.Day,
     }));
 
     data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    const latest = data[0];
 
-    return NextResponse.json(latest);
+    return NextResponse.json(data[0]);
   } catch (err) {
     return NextResponse.json(
       { error: "Internal server error", details: String(err) },
