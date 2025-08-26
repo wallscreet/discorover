@@ -101,7 +101,7 @@ export default function PastAffordabilityCard() {
 
           <div className="grid grid-cols-2 gap-2">
             <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
-              <p className="text-sm text-gray-600">Median Income</p>
+              <p className="text-sm text-gray-600">Med. Annual Income</p>
               <p className="text-sm font-semibold">${data.medianIncome.toLocaleString()}</p>
             </div>
             <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
@@ -109,7 +109,7 @@ export default function PastAffordabilityCard() {
               <p className="text-sm font-semibold">{data.mortgageRate.toFixed(2)}%</p>
             </div>
             <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
-              <p className="text-sm text-gray-600">Median Home Price</p>
+              <p className="text-sm text-gray-600">Med. Home Price</p>
               <p className="text-sm font-semibold">${data.medianHomePrice.toLocaleString()}</p>
             </div>
             <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
@@ -117,20 +117,20 @@ export default function PastAffordabilityCard() {
               <p className="text-sm font-semibold">${data.avgLoanAmount.toLocaleString()}</p>
             </div>
             <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
-              <p className="text-sm text-gray-600">Monthly PI</p>
+              <p className="text-sm text-gray-600">Principal + Interest (PI)</p>
               <p className="text-sm font-semibold">${data.monthlyPi.toLocaleString()}</p>
             </div>
             <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
-              <p className="text-sm text-gray-600">Mortgage Ratio</p>
-              <p className="text-sm font-semibold">{(data.mortgageRatio * 100).toFixed(2)}%</p>
-            </div>
-            <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
-              <p className="text-sm text-gray-600">Monthly HOI Premium</p>
+              <p className="text-sm text-gray-600">Est HOI Premium</p>
               <p className="text-sm font-semibold">${(data.scaledPremium / 12).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
             </div>
             <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
-              <p className="text-sm text-gray-600">Monthly PI + Insurance</p>
+              <p className="text-sm text-gray-600">PI + Insurance (PII)</p>
               <p className="text-sm font-semibold">${data.monthlyPii.toFixed(2)}</p>
+            </div>
+            <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
+              <p className="text-sm text-gray-600">PII/Income Ratio</p>
+              <p className="text-sm font-semibold">{(data.mortgageRatio * 100).toFixed(2)}%</p>
             </div>
           </div>
         </div>
