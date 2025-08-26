@@ -126,7 +126,7 @@ export default function PastAffordabilityCard() {
             </div>
             <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
               <p className="text-sm text-gray-600">Monthly HOI Premium</p>
-              <p className="text-sm font-semibold">${(data.estHoiPremium / 12).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+              <p className="text-sm font-semibold">${(data.scaledPremium / 12).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
             </div>
             <div className="bg-slate-100 rounded-xl p-4 shadow-sm">
               <p className="text-sm text-gray-600">Monthly PI + Insurance</p>

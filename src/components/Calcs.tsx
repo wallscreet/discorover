@@ -25,27 +25,27 @@ function CalcsSection() {
       <div className="flex h-full grid grid-cols-4 grid-rows-8 gap-2">
         {/* Sidebar boxes */}
         <div
-          className="bg-[#214469] flex rounded-lg col-start-1 row-start-2 col-span-1 row-span-1 items-center justify-center cursor-pointer hover:bg-[#2596be] transition"
+          className="bg-[#214469] flex rounded-2xl col-start-1 row-start-2 col-span-1 row-span-1 items-center justify-center cursor-pointer hover:bg-[#2596be] transition"
           onClick={() => setActiveCalc("mortgage")}
         >
           <p className="text-white text-sm font-semibold text-center">Mortgage Calculator</p>
         </div>
 
         <div
-          className="bg-[#214469] flex rounded-lg col-start-1 row-start-3 col-span-1 row-span-1 items-center justify-center cursor-pointer hover:bg-[#2596be] transition"
+          className="bg-[#214469] flex rounded-2xl col-start-1 row-start-3 col-span-1 row-span-1 items-center justify-center cursor-pointer hover:bg-[#2596be] transition"
           onClick={() => setActiveCalc("affordability")}
         >
           <p className="text-white text-sm font-semibold text-center">Affordability By Year</p>
         </div>
 
         <div
-          className="bg-[#214469] flex rounded-lg col-start-1 row-start-4 col-span-1 row-span-1 items-center justify-center cursor-pointer hover:bg-[#2596be] transition"
+          className="bg-[#214469] flex rounded-2xl col-start-1 row-start-4 col-span-1 row-span-1 items-center justify-center cursor-pointer hover:bg-[#2596be] transition"
           onClick={() => setActiveCalc("other")}
         >
           <p className="text-white text-sm font-semibold text-center">Other Calc</p>
         </div>
 
-        <div className="rounded-lg col-start-2 row-start-1 col-span-3 row-span-7 p-0">
+        <div className="rounded-lg col-start-2 row-start-1 col-span-3 row-span-6 p-0">
           {renderCalc()}
         </div>
       </div>
