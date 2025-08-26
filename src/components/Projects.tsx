@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 function ProjectsSection() {
   return (
-    <div className="rounded-lg h-screen p-4 mt-2 pt-18">
+    <div id="apps" className="rounded-lg h-screen p-4 mt-2 pt-18">
         <div className="flex h-full grid grid-cols-3 grid-rows-4 gap-4">
 
             <div className="bg-[#2596be] rounded-lg col-start-1 row-start-1 col-span-2 row-span-2">

@@ -19,8 +19,8 @@ export default function Header() {
     return (
         <header className="fixed rounded-md left-1/2 transform -translate-x-1/2 w-full bg-white text-white shadow-xl z-10">
             <nav className="flex items-center justify-between px-6">
-                <Link href="/" className="hover:text-slate-800">
-                    <div className="text-xl text-[#214469] font-bold p-4">Data & AI Integrations</div>
+                <Link href="/" className="">
+                    <div className="text-xl text-[#214469] hover:text-[#2596be] font-bold p-4">Data & AI Integrations</div>
                 </Link>
                 <button
                     className="md:hidden focus:outline-none"
@@ -32,13 +32,23 @@ export default function Header() {
                 </button>
                 <ul className={`flex space-x-6 md:items-center ${isMobileMenuOpen ? 'flex flex-col absolute top-full left-0 w-full bg-white rounded-b-lg py-4' : 'hidden md:flex'}`}>
                     <li>
+                        <Link href="#apps">
+                            <div className="block text-[#214469] font-bold pl-4 py-2 hover:text-[#2596be]">Apps</div>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="#calculators">
+                            <div className="block text-[#214469] font-bold pl-4 md:pl-0 py-2 hover:text-[#2596be]">Calcs</div>
+                        </Link>
+                    </li>
+                    <li>
                         <Link href="#about">
-                            <div className="block text-[#214469] font-bold pl-4 py-2 hover:text-slate-800">About</div>
+                            <div className="block text-[#214469] font-bold pl-4 md:pl-0 py-2 hover:text-[#2596be]">About</div>
                         </Link>
                     </li>
                     <li>
                         <Link href="#contact">
-                            <div className="block text-[#214469] font-bold pl-4 md:pl-0 py-2 hover:text-slate-800">Contact</div>
+                            <div className="block text-[#214469] font-bold pl-4 md:pl-0 py-2 hover:text-[#2596be]">Contact</div>
                         </Link>
                     </li>
                 </ul>
