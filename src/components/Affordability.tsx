@@ -94,43 +94,8 @@ export default function PastAffordabilityCard() {
 
       {/* Data card */}
       {data ? (
-        // <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-8">
-        //   <h2 className="text-xl font-bold mb-4 text-center">
-        //     Home Affordability in {data.year}
-        //   </h2>
-        //   <ul className="space-y-2 text-slate-800">
-        //     <li>
-        //       <strong>Median Income:</strong> ${data.medianIncome.toLocaleString()}
-        //     </li>
-        //     <li>
-        //       <strong>Mortgage Rate:</strong> {data.mortgageRate.toFixed(2)}%
-        //     </li>
-        //     <li>
-        //       <strong>Median Home Price:</strong> ${data.medianHomePrice.toLocaleString()}
-        //     </li>
-        //     <li>
-        //       <strong>Average Loan Amount:</strong> ${data.avgLoanAmount.toLocaleString()}
-        //     </li>
-        //     <li>
-        //       <strong>Monthly PI Payment:</strong> ${data.monthlyPi.toLocaleString()}
-        //     </li>
-        //     <li>
-        //       <strong>Monthly HOI Premium:</strong> $
-        //       {(data.estHoiPremium / 12).toLocaleString(undefined, {
-        //         minimumFractionDigits: 2,
-        //         maximumFractionDigits: 2,
-        //       })}
-        //     </li>
-        //     <li>
-        //       <strong>Monthly PII Payment:</strong> ${data.monthlyPii.toLocaleString()}
-        //     </li>
-        //     <li>
-        //       <strong>Mortgage Ratio:</strong> {(data.mortgageRatio * 100).toFixed(1)}%
-        //     </li>
-        //   </ul>
-        // </div>
-        <div className="w-full bg-gradient-to-t from-white to-slate-400 shadow-lg rounded-2xl p-6">
-          <h2 className="text-xl font-bold mb-2 text-center text-slate-800">
+        <div className="w-full bg-gradient-to-t from-white to-[#214469] shadow-lg rounded-2xl p-6">
+          <h2 className="text-xl font-bold mb-2 text-center text-white">
             Home Affordability in {data.year}
           </h2>
 
