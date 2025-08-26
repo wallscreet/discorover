@@ -11,7 +11,7 @@ export default function FloatingFooter() {
           rel="noopener noreferrer"
           className="text-slate-800 hover:text-[#2596be] transition"
         >
-          <FaGithub size={24} />
+          <FaGithub size={28} />
         </a>
 
         <a
@@ -20,7 +20,7 @@ export default function FloatingFooter() {
           rel="noopener noreferrer"
           className="text-slate-800 hover:text-[#2596be] transition"
         >
-          <FaXTwitter size={24} />
+          <FaXTwitter size={28} />
         </a>
       </div>
     </div>
