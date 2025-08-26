@@ -76,9 +76,9 @@ function UsMetrics() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-t from-white to-[#214469] rounded-xl w-full h-100 flex grid grid-cols-3 grid-rows-4 gap-2 p-4 mt-4 mb-4">
+    <div className="bg-gradient-to-t from-white to-white rounded-xl w-full h-80 flex grid grid-cols-3 grid-rows-4 gap-4 p-4 mt-8 mb-4">
 
-      <div className="bg-white rounded-xl row-span-2 col-span-3 row-start-1 col-start-1 flex flex-col items-center justify-center shadow-lg">
+      <div className="bg-white rounded-xl row-span-2 col-span-3 row-start-1 col-start-1 flex flex-col items-center justify-center shadow-xl">
         <p className="font-semibold text-2xl pb-5 text-center text-[#214469]">
           U.S. National Debt
         </p>
