@@ -94,24 +94,24 @@ function UsMetrics() {
       </div>
 
       <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-1 flex flex-col items-center justify-center shadow-lg">
-        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">
+        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center text-[#214469]">
           {mortgage ? `${mortgage.rate.toFixed(2)}%` : "Loading..."}
         </p>
-        <p className="text-sm text-center">30yr Mortgage</p>
+        <p className="text-sm text-center text-[#214469]">30yr Mortgage</p>
       </div>
 
       <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-2 flex flex-col items-center justify-center shadow-lg">
-        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">
+        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center text-[#214469]">
           {ffr ? `${ffr.ffrate.toFixed(2)}%` : "Loading..."}
         </p>
-        <p className="text-sm text-center">Fed Funds Rate</p>
+        <p className="text-sm text-center text-[#214469]">Fed Funds Rate</p>
       </div>
 
       <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-3 flex flex-col items-center justify-center shadow-lg">
-        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center">
+        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center text-[#214469]">
           {sofr ? `${sofr.sofr.toFixed(2)}%` : "Loading..."}
         </p>
-        <p className="text-sm text-center">SOFR</p>
+        <p className="text-sm text-center text-[#214469]">SOFR</p>
       </div>
     </div>
   );
