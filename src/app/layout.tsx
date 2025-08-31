@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "DiscoRover",
-  description: "Exploring, aggregating and analyzing complex data to make it approachable. AI integrations with summary prompts and structured outputs. Supported by a python based api.",
+  description: "Data Intelligence Supported Context Operations (DISCO). We are exploring, aggregating and analyzing complex data to make it approachable and accessible by humans and intelligent machines. Supported by a python based api framework, our AI is integrated directly with summary prompts, structured outputs, complex queries and more.",
 };
 
 export default function RootLayout({

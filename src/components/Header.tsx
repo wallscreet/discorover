@@ -49,11 +49,13 @@ function Header() {
 
       {/* center div */}
       <div className="flex col-start-3 col-span-8 items-center justify-center border-r border-slate-700 z-40">
-        <div className="flex items-center text-white">
-          <p className="text-md">The</p>
-          <p className="pl-2 text-2xl">DiscoRover</p>
-          <p className="pl-2 text-md">Project</p>
-        </div>
+          <Link href="/" className=''>
+            <div className="flex items-center text-white hover:text-[#2596be]">
+              <p className="text-lg">The</p>
+              <p className="pl-2 text-3xl font-semibold">DiscoRover</p>
+              <p className="pl-2 text-lg">Project</p>
+            </div>
+          </Link>
       </div>
 
       {/* right div */}
