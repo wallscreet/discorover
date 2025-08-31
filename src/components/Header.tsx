@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react';
-import { FaXTwitter, FaGithub } from 'react-icons/fa6'; // Twitter (X) + GitHub
+import { FaXTwitter, FaGithub } from 'react-icons/fa6';
+import Link from 'next/link';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,21 +27,21 @@ function Header() {
             }`}
           >
             <nav className="pl-10 space-y-4 pt-22">
-              <a href="/" className="block text-white font-bold hover:text-[#2596be]">
+              <Link href="/" className="block text-white font-bold hover:text-[#2596be]">
                 Home
-              </a>
-              <a href="#apps" className="block text-white font-bold hover:text-[#2596be]">
+              </Link>
+              <Link href="#apps" className="block text-white font-bold hover:text-[#2596be]">
                 Apps
-              </a>
-              <a href="#calculators" className="block text-white font-bold hover:text-[#2596be]">
+              </Link>
+              <Link href="#calculators" className="block text-white font-bold hover:text-[#2596be]">
                 Calcs
-              </a>
-              <a href="#about" className="block text-white font-bold hover:text-[#2596be]">
+              </Link>
+              <Link href="#about" className="block text-white font-bold hover:text-[#2596be]">
                 About
-              </a>
-              <a href="#contact" className="block text-white font-bold hover:text-[#2596be]">
+              </Link>
+              <Link href="#contact" className="block text-white font-bold hover:text-[#2596be]">
                 Contact
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
