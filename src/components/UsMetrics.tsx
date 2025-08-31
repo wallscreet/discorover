@@ -76,13 +76,13 @@ function UsMetrics() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-t from-white to-white rounded-xl w-full h-80 flex grid grid-cols-3 grid-rows-4 gap-4 p-4 mt-8">
+    <div className="bg-gradient-to-t from-white to-white rounded-xl w-full h-80 flex grid grid-cols-5 grid-rows-4 gap-4 p-4 mt-8">
 
-      <div className="bg-white rounded-xl row-span-2 col-span-3 row-start-1 col-start-1 flex flex-col items-center justify-center shadow-xl">
+      <div className="bg-white rounded-xl row-span-2 col-span-5 row-start-1 col-start-1 flex flex-col items-center justify-center shadow-xl">
         <p className="font-semibold text-2xl pb-5 text-center text-[#214469]">
           U.S. National Debt
         </p>
-        <p className="font-semibold text-3xl sm:text-5xl pb-4 text-red-800 text-center">
+        <p className="font-semibold text-3xl sm:text-4xl pb-4 text-red-800 text-center">
           {debt
             ? debt.tot_pub_debt_out_amt.toLocaleString("en-US", {
                 style: "currency",
@@ -93,22 +93,22 @@ function UsMetrics() {
         </p>
       </div>
 
-      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-1 flex flex-col items-center justify-center shadow-lg">
-        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center text-[#214469]">
+      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-2 flex flex-col items-center justify-center shadow-lg">
+        <p className="text-2xl sm:text-3xl font-semibold pb-4 text-center text-[#214469]">
           {mortgage ? `${mortgage.rate.toFixed(2)}%` : "Loading..."}
         </p>
         <p className="text-sm text-center text-[#214469]">30yr Mortgage</p>
       </div>
 
-      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-2 flex flex-col items-center justify-center shadow-lg">
-        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center text-[#214469]">
+      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-3 flex flex-col items-center justify-center shadow-lg">
+        <p className="text-2xl sm:text-3xl font-semibold pb-4 text-center text-[#214469]">
           {ffr ? `${ffr.ffrate.toFixed(2)}%` : "Loading..."}
         </p>
         <p className="text-sm text-center text-[#214469]">Fed Funds Rate</p>
       </div>
 
-      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-3 flex flex-col items-center justify-center shadow-lg">
-        <p className="text-3xl sm:text-4xl font-semibold pb-4 text-center text-[#214469]">
+      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-4 flex flex-col items-center justify-center shadow-lg">
+        <p className="text-2xl sm:text-3xl font-semibold pb-4 text-center text-[#214469]">
           {sofr ? `${sofr.sofr.toFixed(2)}%` : "Loading..."}
         </p>
         <p className="text-sm text-center text-[#214469]">SOFR</p>

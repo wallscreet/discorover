@@ -90,11 +90,11 @@ export default function PastAffordabilityCard() {
       </div>
 
       {loading && <p>Loading...</p>}
-      {error && <p className="text-red-600">{error}</p>}
+      {error && <p className="text-red-800">{error}</p>}
 
       {/* Data card */}
       {data ? (
-        <div className="w-full shadow-lg rounded-2xl">
+        <div className="w-full rounded-2xl">
           <h2 className="text-xl font-bold text-center text-[#214469]">
             Home Affordability in {data.year}
           </h2>
