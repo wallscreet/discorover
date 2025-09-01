@@ -76,7 +76,7 @@ function Header() {
                         <p>Commodities:</p>
                         <p className="ml-4 text-sm">Nominal vs Real</p>
                       </Link>
-                      <Link href="/" className="block text-white hover:text-[#2596be]">
+                      <Link href="/home-affordability" className="block text-white hover:text-[#2596be]">
                         <p>Home Affordability</p>
                       </Link>
                       <Link href="/" className="block text-white hover:text-[#2596be]">

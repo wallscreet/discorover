@@ -66,7 +66,7 @@ export default function PastAffordabilityCard() {
   return (
     <div className="flex flex-col items-center gap-4">
       {/* Year selector */}
-      <div className="flex gap-2">
+      <div className="flex gap-2 mb-2">
         <input
           type="number"
           value={year}
@@ -81,10 +81,10 @@ export default function PastAffordabilityCard() {
           className="border rounded-xl p-2 w-20 bg-white text-center"
         />
 
-        <button className="bg-white rounded-xl px-4 py-2 border" onClick={() => setYear(prev => clampYear(prev - 1))}>
+        <button className="bg-white rounded-xl px-4 py-2 border hover:bg-[#2596be] hover:text-white" onClick={() => setYear(prev => clampYear(prev - 1))}>
           ◀ Prev
         </button>
-        <button className="bg-white rounded-xl px-4 py-2 border" onClick={() => setYear(prev => clampYear(prev + 1))}>
+        <button className="bg-white rounded-xl px-4 py-2 border hover:bg-[#2596be] hover:text-white" onClick={() => setYear(prev => clampYear(prev + 1))}>
           Next ▶
         </button>
       </div>
@@ -95,7 +95,7 @@ export default function PastAffordabilityCard() {
       {/* Data card */}
       {data ? (
         <div className="w-full rounded-2xl">
-          <h2 className="text-xl font-bold text-center text-[#214469]">
+          <h2 className="text-xl font-bold text-center text-[#214469] mb-4">
             Home Affordability in {data.year}
           </h2>
 

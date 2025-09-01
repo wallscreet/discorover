@@ -8,9 +8,8 @@ export default function Home() {
     <div className="gap-4">
       
       <HeroSection/>
-      <ProjectsSection/>
       <UsMetrics/>
-      <CalcsSection/>
+      <ProjectsSection/>
      
     </div>
   );
