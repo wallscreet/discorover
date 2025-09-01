@@ -68,10 +68,11 @@ export default function CommodityChart() {
 
   const chartData = useMemo(() => {
     if (!data.length) return [];
+    
     return data.map((row) => ({
       date: row.date,
-      nominal: (row as any)[selected.key],
-      real: (row as any)[selected.realKey],
+      nominal: row[selected.key as keyof CommodityData] as number,
+      real: row[selected.realKey as keyof CommodityData] as number,
     }));
   }, [data, selected]);
 
