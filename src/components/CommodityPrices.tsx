@@ -80,7 +80,7 @@ export default function CommodityChart() {
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
   return (
-    <div className="space-y-4 rounded-xl p-6 shadow-2xl">
+    <div className="space-y-4 rounded-xl p-6 shadow-xl">
       <div>
         <label className="mr-2 text-sm font-medium">Select Commodity:</label>
         <select
@@ -125,14 +125,14 @@ export default function CommodityChart() {
               type="monotone"
               dataKey="nominal"
               name={`${selected.label} (Nominal)`}
-              stroke="#8884d8"
+              stroke="#251ea8ff"
               dot={false}
             />
             <Line
               type="monotone"
               dataKey="real"
               name={`${selected.label} (Real)`}
-              stroke="#82ca9d"
+              stroke="#1dd162ff"
               strokeDasharray="4 2"
               dot={false}
             />

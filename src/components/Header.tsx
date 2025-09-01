@@ -81,10 +81,10 @@ function Header() {
                   <Link href="/home-affordability" className="block text-white hover:text-[#2596be]">
                     <p>Home Affordability</p>
                   </Link>
-                  <Link href="/" className="block text-white hover:text-[#2596be]">
+                  <Link href="/new-cars" className="block text-white hover:text-[#2596be]">
                     <p>New Cars</p>
                   </Link>
-                  <Link href="/" className="block text-white hover:text-[#2596be]">
+                  <Link href="/used-cars" className="block text-white hover:text-[#2596be]">
                     <p>Used Cars</p>
                   </Link>
                 </div>
