@@ -6,6 +6,8 @@ import Link from 'next/link';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [appsOpen, setAppsOpen] = useState(false);
+  const [pricesOpen, setPricesOpen] = useState(false);
 
   return (
     <div className="fixed w-[100%] bg-[#0c122d] p-2 lg:p-4 border-b border-slate-700 grid grid-cols-12 z-100">
@@ -22,28 +24,84 @@ function Header() {
 
           {/* Drawer */}
           <div
-            className={`fixed bg-gradient-to-l from-[#0c122d] to-[#151f4c] top-0 left-0 h-full w-3/4 shadow-xl transform transition-transform duration-300 ease-in-out z-30 ${
+            className={`fixed bg-gradient-to-l from-[#0c122d] to-[#151f4c] top-0 left-0 h-full w-full sm:w-3/4 shadow-xl transform transition-transform duration-300 ease-in-out z-30 ${
               isOpen ? 'translate-x-0' : '-translate-x-full'
             }`}
           >
             <nav className="pl-10 space-y-4 pt-22">
+              
+              {/* Home Link */}
               <Link href="/" className="block text-white font-bold hover:text-[#2596be]">
                 Home
               </Link>
-              <Link href="#apps" className="block text-white font-bold hover:text-[#2596be]">
-                Apps
-              </Link>
-              <Link href="#calculators" className="block text-white font-bold hover:text-[#2596be]">
+              
+              {/* Apps with submenu */}
+              <div className="relative group">
+                {/* Apps menu open on click */}
+                <div className="relative">
+                  <button
+                    onClick={() => setAppsOpen(!appsOpen)}
+                    className="w-full text-left block text-white font-bold hover:text-[#2596be]"
+                  >
+                    Apps
+                  </button>
+
+                  {appsOpen && (
+                    <div className="absolute top-[-16] left-0 ml-36 w-48 border-l border-white p-4 space-y-4 z-50 rounded-lg pl-6">
+                      <Link href="https://gov-feeds.discorover.com" className="block text-white hover:text-[#2596be]">
+                        GovFeeds
+                      </Link>
+                      <Link href="https://api.discorover.com/docs" className="block text-white hover:text-[#2596be]">
+                        GovData API
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Prices with submenu */}
+              <div className="relative group">
+                {/* Apps menu open on click */}
+                <div className="relative">
+                  <button
+                    onClick={() => setPricesOpen(!pricesOpen)}
+                    className="w-full text-left block text-white font-bold hover:text-[#2596be]"
+                  >
+                    Prices
+                  </button>
+
+                  {pricesOpen && (
+                    <div className="absolute top-[-18] left-0 ml-36 w-48 border-l border-white p-4 space-y-4 z-50 rounded-lg pl-6">
+                      <Link href="/commodity-prices" className="block text-white hover:text-[#2596be]">
+                        <p>Commodities:</p>
+                        <p className="ml-4 text-sm">Nominal vs Real</p>
+                      </Link>
+                      <Link href="/" className="block text-white hover:text-[#2596be]">
+                        <p>Home Affordability</p>
+                      </Link>
+                      <Link href="/" className="block text-white hover:text-[#2596be]">
+                        <p>New Cars</p>
+                      </Link>
+                      <Link href="/" className="block text-white hover:text-[#2596be]">
+                        <p>Used Cars</p>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <Link href="/#calculators" className="block text-white font-bold hover:text-[#2596be]">
                 Calcs
               </Link>
-              <Link href="#about" className="block text-white font-bold hover:text-[#2596be]">
+              <Link href="/#about" className="block text-white font-bold hover:text-[#2596be]">
                 About
               </Link>
-              <Link href="#contact" className="block text-white font-bold hover:text-[#2596be]">
+              <Link href="/#contact" className="block text-white font-bold hover:text-[#2596be]">
                 Contact
               </Link>
             </nav>
           </div>
+
         </div>
       </div>
 
@@ -59,7 +117,7 @@ function Header() {
       </div>
 
       {/* right div */}
-      <div className="flex col-start-11 col-span-2 items-center justify-center">
+      <div className="flex col-start-11 col-span-2 items-center justify-center z-50">
         <div className="flex space-x-4 text-white">
           <a
             href="https://x.com/Wallscreet"
