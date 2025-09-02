@@ -76,9 +76,9 @@ function UsMetrics() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-t from-white to-white rounded-xl w-full h-80 flex grid grid-cols-5 grid-rows-4 gap-4 p-4 mt-8">
+    <div className="rounded-xl w-full h-80 flex grid grid-cols-5 grid-rows-4 gap-4 p-4 mt-8">
 
-      <div className="bg-white rounded-xl row-span-2 col-span-5 row-start-1 col-start-1 flex flex-col items-center justify-center shadow-xl">
+      <div className="rounded-xl row-span-2 col-span-5 row-start-1 col-start-1 flex flex-col items-center justify-center shadow-xl border-b border-slate-400">
         <p className="font-semibold text-2xl pb-5 text-center text-[#0c122d]">
           U.S. National Debt
         </p>
@@ -93,21 +93,21 @@ function UsMetrics() {
         </p>
       </div>
 
-      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-2 flex flex-col items-center justify-center shadow-lg">
+      <div className="rounded-xl row-span-2 col-span-1 row-start-3 col-start-2 flex flex-col items-center justify-center shadow-lg">
         <p className="text-2xl sm:text-3xl font-semibold pb-4 text-center text-[#0c122d]">
           {mortgage ? `${mortgage.rate.toFixed(2)}%` : "Loading..."}
         </p>
         <p className="text-sm text-center text-[#214469]">30yr Mortgage</p>
       </div>
 
-      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-3 flex flex-col items-center justify-center shadow-lg">
+      <div className="rounded-xl row-span-2 col-span-1 row-start-3 col-start-3 flex flex-col items-center justify-center shadow-lg">
         <p className="text-2xl sm:text-3xl font-semibold pb-4 text-center text-[#0c122d]">
           {ffr ? `${ffr.ffrate.toFixed(2)}%` : "Loading..."}
         </p>
         <p className="text-sm text-center text-[#214469]">Fed Funds Rate</p>
       </div>
 
-      <div className="bg-white rounded-xl row-span-2 col-span-1 row-start-3 col-start-4 flex flex-col items-center justify-center shadow-lg">
+      <div className="rounded-xl row-span-2 col-span-1 row-start-3 col-start-4 flex flex-col items-center justify-center shadow-lg">
         <p className="text-2xl sm:text-3xl font-semibold pb-4 text-center text-[#0c122d]">
           {sofr ? `${sofr.sofr.toFixed(2)}%` : "Loading..."}
         </p>
