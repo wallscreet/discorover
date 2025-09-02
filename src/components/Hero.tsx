@@ -16,7 +16,7 @@ function HeroSection() {
         <div className="bg-white/5 backdrop-blur-md rounded-2xl p-2 shadow-lg">
           {/* Text layer */}
           <h1 className="text-lg md:text-xl font-bold text-white drop-shadow-[2px_2px_0_black] text-center">
-            Data Intelligence Supported COntext
+            Data Intelligence for Structured Context Optimization
           </h1>
         </div>
       </div>
