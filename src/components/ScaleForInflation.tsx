@@ -29,8 +29,12 @@ export default function InflationScaler() {
       if (!res.ok) throw new Error("Failed to fetch result");
       const data: InflationScaledResult = await res.json();
       setResult(data);
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Something went wrong");
+      }
     } finally {
       setLoading(false);
     }
@@ -38,7 +42,6 @@ export default function InflationScaler() {
 
   return (
     <div className="max-w-md mx-auto p-4 bg-white shadow rounded-2xl">
-      {/* <h2 className="text-xl text-[#0c122d] font-semibold mb-4">Scale for Inflation</h2> */}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex gap-4">
           <div className="flex-1">
@@ -77,7 +80,10 @@ export default function InflationScaler() {
           <div className="p-3 border rounded-lg bg-gray-50 text-[#0c122d]">
             <p>
               ${result.original_amount.toFixed(2)} in {result.from_year} ≈{" "}
-              <strong className="text-[#0c122d]">${result.scaled_amount.toFixed(2)}</strong> in {result.to_year}
+              <strong className="text-[#0c122d]">
+                ${result.scaled_amount.toFixed(2)}
+              </strong>{" "}
+              in {result.to_year}
             </p>
           </div>
         )}
