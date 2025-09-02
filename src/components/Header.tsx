@@ -53,7 +53,7 @@ function Header() {
                 Apps
               </button>
               {activeSubmenu === "apps" && (
-                <div className="absolute top-[-16] left-0 ml-36 w-48 border-l border-white p-4 space-y-4 z-50 rounded-lg pl-6">
+                <div className="absolute top-[-16] left-0 ml-42 w-48 border-l border-white p-4 space-y-4 z-50 rounded-lg pl-6">
                   <Link href="https://gov-feeds.discorover.com" className="block text-white hover:text-[#2596be]">
                     GovFeeds
                   </Link>
@@ -73,7 +73,7 @@ function Header() {
                 Prices
               </button>
               {activeSubmenu === "prices" && (
-                <div className="absolute top-[-18] left-0 ml-36 w-48 border-l border-white p-4 space-y-4 z-50 rounded-lg pl-6">
+                <div className="absolute top-[-18] left-0 ml-42 w-48 border-l border-white p-4 space-y-4 z-50 rounded-lg pl-6">
                   <Link href="/commodity-prices" className="block text-white hover:text-[#2596be]">
                     <p>Commodities:</p>
                     <p className="ml-4 text-sm">Nominal vs Real</p>
@@ -92,8 +92,8 @@ function Header() {
             </div>
 
             {/* Other links */}
-            <Link href="/#about" className="block text-white font-bold hover:text-[#2596be]">
-              About
+            <Link href="/inflation-calc" className="block text-white font-bold hover:text-[#2596be]">
+              Inflation Calculator
             </Link>
             <Link href="/#contact" className="block text-white font-bold hover:text-[#2596be]">
               Contact

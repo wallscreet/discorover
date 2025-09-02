@@ -1,6 +1,5 @@
 import HeroSection from "@/components/Hero";
 import ProjectsSection from "@/components/Projects";
-import CalcsSection from "@/components/Calcs";
 import UsMetrics from "@/components/UsMetrics";
 
 export default function Home() {
@@ -10,7 +9,7 @@ export default function Home() {
       <HeroSection/>
       <UsMetrics/>
       <ProjectsSection/>
-     
+      
     </div>
   );
 }

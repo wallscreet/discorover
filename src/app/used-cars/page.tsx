@@ -1,6 +1,7 @@
 'use client'
 
 import dynamic from "next/dynamic";
+import { Car } from "lucide-react";
 
 // Avoid SSR for recharts
 const UsedCarPricesChart = dynamic(
@@ -11,14 +12,29 @@ const UsedCarPricesChart = dynamic(
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 pt-18 lg:pt-20">
-        <h1 className="text-xl font-semibold text-center mb-4">
-            Used Car Prices — Nominal vs Real
-        </h1>
-            <p className="text-center px-10">
+        
+        <div className="gap-6">       
+          <h1 className="text-2xl font-semibold text-center mb-4 text-center">
+              Used Car Prices — Nominal vs Real
+          </h1>
+        </div>
+
+        <div>
+            <div className="flex items-center my-2 mb-4">
+                <div className="flex-grow border-t border-gray-300"></div>
+                    <Car className="mx-4 text-gray-400 w-4 h-4" />
+                <div className="flex-grow border-t border-gray-300"></div>
+            </div>
+            
+            <p className="text-center px-10 text-md mb-4">
                 This chart shows the history of used car prices from 1971 to current, adjusted for inflation (real) compared to their nominal values. It helps visualize how affordability has shifted over time.
             </p>
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+        </div>
 
-        <UsedCarPricesChart />
+        <div>
+          <UsedCarPricesChart />
+        </div>
     </main>
   );
 }
