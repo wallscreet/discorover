@@ -20,7 +20,7 @@ export default function DocsIndexClient({ docs }: { docs: DocMeta[] }) {
   );
 
   return (
-    <>
+    <div className="">
       <input
         type="text"
         placeholder="Search docs..."
@@ -45,6 +45,6 @@ export default function DocsIndexClient({ docs }: { docs: DocMeta[] }) {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }

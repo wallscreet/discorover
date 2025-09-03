@@ -5,8 +5,8 @@ import Image from "next/image";
 import { CarFront } from "lucide-react";
 
 // Avoid SSR for recharts
-const NewCarPricesChart = dynamic(
-  () => import("@/components/NewCarPricesChart"),
+const CarPricesChart = dynamic(
+  () => import("@/components/CarPricesChart"),
   { ssr: false }
 );
 
@@ -15,8 +15,8 @@ export default function Page() {
     <main className="mx-auto max-w-6xl px-4 py-8 pt-18 lg:pt-20">
         
         <div className="gap-6">       
-          <h1 className="text-2xl font-semibold text-center mb-4 text-center">
-              New Car Prices — Nominal vs Real
+          <h1 className="text-xl text-[#0c122d] font-semibold text-center mb-4 text-center">
+              Car Prices — Nominal vs Real
           </h1>
         </div>
 
@@ -28,13 +28,13 @@ export default function Page() {
             </div>
             
             <p className="text-center px-10 text-md mb-4">
-                This chart shows the history of new car prices from 1971 to current, adjusted for inflation (real) compared to their nominal values. It helps visualize how affordability has shifted over time.
+                This chart shows the history of new and used car prices from 1971 to current, adjusted for inflation (real) compared to their nominal values. This helps better visualize how affordability has shifted over time.
             </p>
             <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
         </div>
         
         <div> 
-          <NewCarPricesChart />
+          <CarPricesChart />
         </div>
 
     </main>

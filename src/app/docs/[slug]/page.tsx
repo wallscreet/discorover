@@ -14,9 +14,17 @@ export default async function DocPage({ params }: Props) {
   const doc = await getDocBySlug(slug);
 
   return (
-    <main className="prose mx-auto p-6 pt-22">
-      <h1 className="font-bold mb-4">{doc.frontmatter.title || slug}</h1>
-      <article dangerouslySetInnerHTML={{ __html: doc.contentHtml }} />
+    <main className="prose mx-auto p-12 pt-22">
+      <div className="">
+        {/* Title */}
+        <div className="">
+          <h1 className="font-bold mb-4">{doc.frontmatter.title || slug}</h1>
+        </div>
+        {/* Content */}
+        <div className="">
+          <article dangerouslySetInnerHTML={{ __html: doc.contentHtml }} />
+        </div>
+      </div>
     </main>
   );
 }
