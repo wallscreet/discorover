@@ -43,8 +43,8 @@ export default function MortgageChart() {
         if (!res.ok) throw new Error("Failed to fetch Mortgage Rates data");
         const json = await res.json();
 
-        const processed = json.map((d: any) => {
-          const parsedDate = new Date(d.date);
+        const processed: MtgData[] = (json as MtgData[]).map((d) => {
+          const parsedDate = new Date(d.date); // note capital "Date"
           if (isNaN(parsedDate.getTime())) throw new Error(`Invalid date: ${d.date}`);
           return {
             date: parsedDate,
@@ -52,6 +52,7 @@ export default function MortgageChart() {
             rate15: Number(d.rate15),
           };
         });
+
 
         setData(processed);
       } catch (err) {
