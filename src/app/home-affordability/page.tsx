@@ -1,6 +1,7 @@
 'use client'
 
 import PastAffordabilityCard from "@/components/Affordability";
+import MortgageChart from "@/components/MtgRatesChart";
 import { House } from "lucide-react";
 
 export default function Page() {
@@ -29,7 +30,6 @@ export default function Page() {
         <div className="rounded-xl p-6 shadow-xl mt-2">
             <PastAffordabilityCard/>
         </div>
-
     </main>
   );
 }

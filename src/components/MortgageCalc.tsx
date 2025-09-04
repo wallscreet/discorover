@@ -22,9 +22,9 @@ function MortgageCalculatorCard() {
   }, [loan, rate, years]);
 
   return (
-    <div className="bg-white h-full rounded-lg shadow p-6 flex flex-col">
-      <h2 className="text-xl font-bold text-[#214469] mb-4">
-        Mortgage Calculator
+    <div className="bg-white h-full rounded-lg shadow p-6 flex flex-col mx-auto">
+      <h2 className="text-xl font-bold text-[#214469] mb-4 text-center">
+        Payment Calculator
       </h2>
 
       {/* Loan Amount */}

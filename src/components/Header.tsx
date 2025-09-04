@@ -89,6 +89,9 @@ function Header() {
             </div>
 
             {/* Other links */}
+            <Link href="/mortgage" className="block text-white font-bold hover:text-[#2596be]">
+              Mortgage Hub
+            </Link>
             <Link href="/inflation-calc" className="block text-white font-bold hover:text-[#2596be]">
               Inflation Calculator
             </Link>

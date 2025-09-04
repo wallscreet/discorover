@@ -1,27 +1,27 @@
 import { NextResponse } from "next/server";
 
-interface RawMtg30Data {
+interface RawMtg15Data {
   Date: string;
   "30yr Mortgage Rate": number;
 }
 
-interface Mtg30Data {
+interface Mtg15Data {
   date: string;
   rate: number;
 }
 
 export async function GET() {
   try {
-    const res = await fetch("https://api.discorover.com/mortgage-30yr");
+    const res = await fetch("https://api.discorover.com/mortgage-15yr");
 
     if (!res.ok) {
       return NextResponse.json(
-        { error: "Failed to fetch 30yr Mortgage Rates data" },
+        { error: "Failed to fetch 15yr Mortgage Rates data" },
         { status: res.status }
       );
     }
 
-    const raw: RawMtg30Data[] = await res.json();
+    const raw: RawMtg15Data[] = await res.json();
 
     if (!Array.isArray(raw) || raw.length === 0) {
       return NextResponse.json(
@@ -30,7 +30,7 @@ export async function GET() {
       );
     }
 
-    const data: Mtg30Data[] = raw.map((item) => ({
+    const data: Mtg15Data[] = raw.map((item) => ({
       date: item.Date,
       rate: item["30yr Mortgage Rate"],
     }));
