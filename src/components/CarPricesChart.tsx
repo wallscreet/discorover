@@ -28,41 +28,69 @@ export default function CarPriceChart() {
     const [loading, setLoading] = useState(true);
     const [selected, setSelected] = useState<"new" | "used">("new");
 
+    // useEffect(() => {
+    //     async function fetchData() {
+    //       try {
+    //         const res = await fetch("/api/car-prices");
+    //         const json = await res.json();
+    //         setData(json);
+    //       } catch (err) {
+    //         console.error("Error fetching used car data:", err);
+    //       } finally {
+    //         setLoading(false);
+    //       }
+    //     }
+    //     fetchData();
+    //   }, []);
+    
+    //   if (loading) {
+    //     return <p>Loading new car price data...</p>;
+    // }
     useEffect(() => {
         async function fetchData() {
-          try {
+            try {
             const res = await fetch("/api/car-prices");
             const json = await res.json();
-            setData(json);
-          } catch (err) {
-            console.error("Error fetching used car data:", err);
-          } finally {
+
+            if (Array.isArray(json)) {
+                setData(json);
+            } else {
+                console.error("Unexpected API response:", json);
+                setData([]);
+            }
+            } catch (err) {
+            console.error("Error fetching car data:", err);
+            setData([]);
+            } finally {
             setLoading(false);
-          }
+            }
         }
         fetchData();
-      }, []);
-    
-      if (loading) {
-        return <p>Loading new car price data...</p>;
-    }
+    }, []);
 
     // Map API fields to chart-friendly format
-    const mappedData = data.map((d) => {
-    if (selected === "new") {
-        return {
-        date: d.date,
-        real: d.newPriceReal,
-        nominal: d.newPriceNominal,
-        };
-    } else {
-        return {
-        date: d.date,
-        real: d.usedPriceReal,
-        nominal: d.usedPriceNominal,
-        };
-    }
-    });
+    // const mappedData = data.map((d) => {
+    // if (selected === "new") {
+    //     return {
+    //     date: d.date,
+    //     real: d.newPriceReal,
+    //     nominal: d.newPriceNominal,
+    //     };
+    // } else {
+    //     return {
+    //     date: d.date,
+    //     real: d.usedPriceReal,
+    //     nominal: d.usedPriceNominal,
+    //     };
+    // }
+    // });
+    const mappedData = Array.isArray(data)
+        ? data.map((d) =>
+            selected === "new"
+                ? { date: d.date, real: d.newPriceReal, nominal: d.newPriceNominal }
+                : { date: d.date, real: d.usedPriceReal, nominal: d.usedPriceNominal }
+            )
+    : [];
 
     return (
     <div className="p-4">
