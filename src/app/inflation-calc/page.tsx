@@ -1,9 +1,8 @@
 'use client'
 
 import InflationScaler from "@/components/ScaleForInflation";
-import dynamic from "next/dynamic";
-import Image from "next/image";
 import { ChartSpline } from "lucide-react";
+import CpiChart from "@/components/CpiChart";
 
 
 export default function Page() {
@@ -32,9 +31,8 @@ export default function Page() {
         <div> 
             <InflationScaler/>
         </div>
+        
 
     </main>
   );
 }
-
-// SEO meta description to add to SEO component: Calculate inflation from 1947 to today using official CPI data from FRED. See what past dollars are worth in today’s money.

@@ -12,7 +12,7 @@ const CarPricesChart = dynamic(
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8 pt-18 lg:pt-20">
+    <main className="mx-auto max-w-4xl px-4 py-8 pt-18 lg:pt-20">
         
         <div className="gap-6">       
           <h1 className="text-xl text-[#0c122d] font-semibold text-center mb-4 text-center">
