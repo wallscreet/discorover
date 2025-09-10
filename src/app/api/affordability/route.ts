@@ -5,7 +5,7 @@ interface RawAffordabilityData {
   "HOI PPI": number;
   "Est HOI Premium": number;
   CPI: number;
-  "Scaled Premium": number;
+  "HOI Premium Nominal": number;
   "Median Sales Price": number;
   "Median Family Income": number;
   "30yr Mtg Rate": number;
@@ -54,7 +54,7 @@ export async function GET() {
       hoiPpi: item["HOI PPI"],
       estHoiPremium: item["Est HOI Premium"],
       cpi: item.CPI,
-      scaledPremium: item["Scaled Premium"],
+      scaledPremium: item["HOI Premium Nominal"],
       medianHomePrice: item["Median Sales Price"],
       medianIncome: item["Median Family Income"],
       mortgageRate: item["30yr Mtg Rate"],
