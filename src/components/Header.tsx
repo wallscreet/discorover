@@ -58,7 +58,7 @@ function Header() {
                     GovFeeds
                   </Link>
                   <Link href="https://api.discorover.com/docs" className="block text-white hover:text-[#2596be]">
-                    GovData API
+                    DiscoAPI
                   </Link>
                 </div>
               )}

@@ -18,6 +18,8 @@ interface RawCommodityData {
   "Gas Per Gallon (Real)": number;
   "Electric Per kWh": number;
   "Electric Per kWh (Real)": number;
+  "Chicken 1lb": number;
+  "Chicken 1lb (Real)": number;
 }
 
 interface CommodityData {
@@ -38,6 +40,8 @@ interface CommodityData {
   gasReal: number;
   electric: number;
   electricReal: number;
+  chicken: number;
+  chickenReal: number;
 }
 
 export async function GET() {
@@ -71,6 +75,8 @@ export async function GET() {
       gasReal: item["Gas Per Gallon (Real)"],
       electric: item["Electric Per kWh"],
       electricReal: item["Electric Per kWh (Real)"],
+      chicken: item["Chicken 1lb"],
+      chickenReal: item["Chicken 1lb (Real)"],
     }));
 
     return NextResponse.json(data);

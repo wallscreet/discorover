@@ -35,7 +35,6 @@ export default function Page() {
 
         {/* Rates Chart */}
         <div>
-             
             <div className="flex items-center my-2 mt-8 mb-6">
                 <div className="flex-grow border-t border-gray-300"></div>
                     <ChartSpline className="mx-4 text-gray-400 w-4 h-4" />

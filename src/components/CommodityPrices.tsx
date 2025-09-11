@@ -30,6 +30,8 @@ interface CommodityData {
   gasReal: number;
   electric: number;
   electricReal: number;
+  chicken: number;
+  chickenReal: number;
 }
 
 const COMMODITY_OPTIONS = [
@@ -41,6 +43,7 @@ const COMMODITY_OPTIONS = [
   { label: "Coffee (1lb)", key: "coffee", realKey: "coffeeReal" },
   { label: "Gas (Gallon)", key: "gas", realKey: "gasReal" },
   { label: "Electric (kWh)", key: "electric", realKey: "electricReal" },
+  { label: "Chicken (1lb)", key: "chicken", realKey: "chickenReal" },
 ] as const;
 
 type CommodityOption = typeof COMMODITY_OPTIONS[number];
